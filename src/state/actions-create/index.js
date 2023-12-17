@@ -1,0 +1,1 @@
+export * as actioncreate from "./actionname.js"
