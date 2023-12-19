@@ -7,8 +7,7 @@ import Page404 from './components/Page404';
 // import { useParams, useLocation, useHistory } from 'react-router-dom';
 import { BrowserRouter as Router , Route, Routes} from 'react-router-dom';
 import Home from './components/Home';
-const Login = () => <div>Login</div>;
-
+import Login from './components/Login';
 const Signup = () => <div>Signup</div>;
 
 

@@ -1,7 +1,8 @@
 // import posts from "../reducers/post-reducer";
 import {UPDATE_POSTS} from "../actions-create/actionTypes.js"
+import { APIUrls } from "../../helpers/urls.js";
 export const fetchPosts = () => (dispatch) => {
-    const url = "https://codeial.codingninjas.com:8000/api/v2/posts?page=1&limit=5";
+    const url = APIUrls.fetchPosts();
     fetch(url)
       .then((response) => {
         // console.log('response :', response);
