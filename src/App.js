@@ -8,12 +8,20 @@ import Page404 from './components/Page404';
 import { BrowserRouter as Router , Route, Routes} from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
-const Signup = () => <div>Signup</div>;
+// import * as jwtDecode from 'jwt-decode'
+import { jwtDecode } from 'jwt-decode';
+
+import Signup from './components/Signup';
 
 
 class App extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchPosts()) ;   /// to dispatch an action here to put post in loaded component 
+    const token = localStorage.getItem('token') ; 
+    if(token){
+      const user = jwtDecode(token) ; 
+      console.log('user',user);
+    }
   }
   render() {
     console.log('PROPS :', this.props) ; 
@@ -27,7 +35,7 @@ class App extends React.Component {
           
             <Route exact path="/" element={<Home posts={posts}/>} />
             <Route path="/login" element={<Login/>} />
-  
+            <Route path="/register" element={<Signup/>} />
             <Route  path = "*" element ={<Page404 />} />
           </Routes>
           
