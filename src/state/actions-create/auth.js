@@ -1,4 +1,4 @@
-import { LOGIN_START , LOGIN_FAILED, LOGIN_SUCCESS ,SIGNUP_FAILED,SIGNUP_START,SIGNUP_SUCCESS} from "./actionTypes";
+import { LOGIN_START , LOGIN_FAILED, LOGIN_SUCCESS ,SIGNUP_FAILED,SIGNUP_START,SIGNUP_SUCCESS , AUTHENTICATE_USER , LOG_OUT ,CLEAR_AUTH_STATE} from "./actionTypes";
 import { APIUrls } from "../../helpers/urls";
 import { getFormBody } from "../../helpers/utils";
   
@@ -95,3 +95,22 @@ export function login(email, password) {
       user,
     };
   }
+
+  export function authenticateUser(user) {
+    return {
+      type: AUTHENTICATE_USER,
+      user,
+    };
+  }
+
+  export function logoutUser() {
+    return {
+      type: LOG_OUT,
+    };
+  }
+  export function clearAuthState() {
+    return {
+      type: CLEAR_AUTH_STATE,
+    };
+  }
+  

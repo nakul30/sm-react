@@ -3,12 +3,12 @@ import {
     LOGIN_START,
     LOGIN_SUCCESS,
     LOGIN_FAILED,
-    // AUTHENTICATE_USER,
-    // LOG_OUT,
+    AUTHENTICATE_USER,
+    LOG_OUT,
     SIGNUP_START,
     SIGNUP_SUCCESS,
     SIGNUP_FAILED,
-    // CLEAR_AUTH_STATE,
+    CLEAR_AUTH_STATE ,
     // EDIT_USER_SUCCESSFUL,
     // EDIT_USER_FAILED,
   }
@@ -49,11 +49,11 @@ const initialAuthState = {
 // }
 export default function auth(state = initialAuthState, action) {
     switch (action.type) {
-    //   case CLEAR_AUTH_STATE:
-        // return {
-        //   ...state,
-        //   error: null,
-        // };
+      case CLEAR_AUTH_STATE:
+        return {
+          ...state,
+          error: null,
+        };
       case LOGIN_START:
       case SIGNUP_START:
         return {
@@ -76,18 +76,18 @@ export default function auth(state = initialAuthState, action) {
           inProgress: false,
           error: action.error,
         };
-    //   case AUTHENTICATE_USER:
-    //     return {
-    //       ...state,
-    //       user: action.user,
-    //       isLoggedin: true,
-    //     };
-    //   case LOG_OUT:
-    //     return {
-    //       ...state,
-    //       user: {},
-    //       isLoggedin: false,
-    //     };
+      case AUTHENTICATE_USER:
+        return {
+          ...state,
+          user: action.user,
+          isLoggedin: true,
+        };
+      case LOG_OUT:
+        return {
+          ...state,
+          user: {},
+          isLoggedin: false,
+        };
     //   case EDIT_USER_SUCCESSFUL:
     //     return {
     //       ...state,

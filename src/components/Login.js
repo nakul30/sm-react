@@ -1,8 +1,11 @@
 // import { faThList } from '@fortawesome/free-solid-svg-icons';
 import React, { Component } from 'react';
-import { login } from '../state/actions-create/auth';
+import { clearAuthState, login } from '../state/actions-create/auth';
 // as if we dont have dispathc in login component so i have to connect the component to the store 
 import { connect } from 'react-redux';
+// import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+
 // import { keyboardImplementationWrapper } from '@testing-library/user-event/dist/keyboard';
 class Login extends Component {
   constructor(props) {
@@ -13,6 +16,9 @@ class Login extends Component {
         email: "",
         password: "",
       };
+  }
+  componentWillUnmount() {
+    this.props.dispatch(clearAuthState())
   }
   handleformSubmit = (e) => {
     e.preventDefault();
@@ -43,7 +49,12 @@ class Login extends Component {
   }
   render() {
     // after mapping i am writing this 
-    const {error , inProgress} = this.props.auth ; 
+    const {error , inProgress , isLoggedin} = this.props.auth ; 
+    if(isLoggedin){
+      // return <Redirect to="/" />
+      return <Navigate to="/" />
+
+    }
     return (
       <form action="" className="login-form">
         <span className="login-signup-header"> Login</span>

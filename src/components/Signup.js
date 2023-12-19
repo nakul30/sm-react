@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-// import { Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { clearAuthState } from '../state/actions-create/auth';
 import { startSingup, signup } 
 // import { startSingup } 
+// impor clearAuthState
 from '../state/actions-create/auth';
 
 class Signup extends Component {
@@ -16,9 +18,9 @@ class Signup extends Component {
     };
   }
 
-//   componentWillUnmount() {
-//     this.props.dispatch(clearAuthState());
-//   }
+  componentWillUnmount() {
+    this.props.dispatch(clearAuthState());
+  }
 
   handleInputChange = (field, value) => {
     this.setState({
@@ -38,12 +40,12 @@ class Signup extends Component {
 
   render() {
     const { inProgress, error, 
-        // isLoggedin
+        isLoggedin
      } = this.props.auth;
 
-    // if (isLoggedin) {
-    //   return <Navigate to="/" />;
-    // }
+    if (isLoggedin) {
+      return <Navigate to="/" />;
+    }
     return (
       <form className="login-form">
         <span className="login-signup-header"> Signup</span>

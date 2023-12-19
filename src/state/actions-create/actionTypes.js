@@ -11,3 +11,10 @@ export const LOGIN_FAILED = 'LOGIN_FAILED'
 export const SIGNUP_START = 'SIGNUP_START';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_FAILED = 'SIGNUP_FAILED';
+
+
+export const AUTHENTICATE_USER = 'AUTHENTICATE_USER';
+export const LOG_OUT = 'LOG_OUT';
+
+// clearing auth state 
+export const CLEAR_AUTH_STATE = 'CLEAR_AUTH_STATE';
