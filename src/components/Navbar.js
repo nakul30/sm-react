@@ -31,8 +31,8 @@ class Navbar extends React.Component {
         />
         <input placeholder="Search" />
 
-        <div className="search-results">
-          <ul>
+        {/* <div className="search-results"> */}
+          {/* <ul>
             
             <li className="search-results-row">
               <img
@@ -48,8 +48,8 @@ class Navbar extends React.Component {
               />
               <span>John Doe</span>
             </li>
-          </ul>
-        </div>
+          </ul> */}
+        {/* </div> */}
       </div>
       <div className="right-nav">
         {auth.isLoggedin && (
